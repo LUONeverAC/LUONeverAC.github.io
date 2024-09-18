@@ -1,11 +1,53 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
     <title>LUO_Never_AC的小破站</title>
+    <script>
+        // 初始化功德计数器
+        var n = 0;
+
+        // 定义点击按钮时的函数
+        function muyi() {
+            // 每点击一次，功德加1
+            n++;
+            // 更新显示的功德值
+            document.getElementById("功德显示").innerHTML = "功德：" + n;
+        }
+    </script>
+    <script>
+        // 初始化功德计数器
+        var 连续增加功德数之和 = 0;
+
+        // 定义点击按钮时的函数
+        function dutumuyu() {
+            // 生成-n~n之间的随机数
+            var 随机数 = Math.floor(Math.random() * (n * 2 + 1)) - n;
+            // 如果随机数是负数，使用连续增加功德数之和加上这个负数
+            if (随机数 < 0) {
+                随机数 += 连续增加功德数之和;
+            }
+            // 如果连续增加功德数之和大于1000，强制增加-n的功德
+            if (连续增加功德数之和 > 1000) {
+                随机数 = -n;
+            }
+            // 每点击一次，功德增加随机数
+            n += 随机数;
+            // 更新显示的功德值
+            document.getElementById("功德显示").innerHTML = "功德：" + n;
+            // 如果随机数是正数，更新连续增加功德数之和
+            if (随机数 > 0) {
+                连续增加功德数之和 += 随机数;
+            }
+        }
+    </script>
 </head>
 
 <body>
     <h1>欢迎来的LUO_Never_AC的小破站</h1>
+    <button onclick="muyi()">木鱼（要慢慢按，不然加不了哦！）</button>
+    <button onclick="dutumuyu()">赌徒木鱼（小心哦！）</button>
+    <p id="功德显示">功德：0</p>
     <script>
         (function () {
             var a_idx = 0;
