@@ -5,15 +5,38 @@
     <title>纪念UKE！</title>
     <link rel="icon" href="https://cdn.luogu.com.cn/upload/usericon/75446.png" type="image/png">
     <script>
-        var flag = 1;
+        // var flag = 1;
         // 初始化功德计数器
         var n = 0;
-
-        // 定义点击按钮时的函数
-        function muyi() {
+        var m = 0;
+        function kk() {
+            alert("Error!");
+        }
+        function auto1() {
+            while (m >= 1) changetogongde();
+        }
+        function auto2() {
+            while (n >= 50000) changetoxinyang();
+        }
+        function changetogongde() {
+            // if (m < 1 || flag == 1) { kk(); return; }
+            m--;
+            n += 50000;
+            document.getElementById("功德显示").innerHTML = "功德：" + n;
+            document.getElementById("信仰显示").innerHTML = "信仰：" + m;
+        }
+        function changetoxinyang() {
+            // if (n < 50000 || flag == 1) { kk(); return; }
+            n -= 500000;
+            m++;
+            document.getElementById("功德显示").innerHTML = "功德：" + n;
+            document.getElementById("信仰显示").innerHTML = "信仰：" + m;
+        }
+        function muyu() {
+            // flag = 0;
             // 每点击一次，功德加1
             n++;
-            flag = 0;
+            // flag = 0;
             // 更新显示的功德值
             document.getElementById("功德显示").innerHTML = "功德：" + n;
         }
@@ -24,6 +47,7 @@
 
         // 定义点击按钮时的函数
         function dutumuyu() {
+            // if (flag == 1) { kk(); return; }
             // 生成-n~n之间的随机数
             var rand__ = Math.floor(Math.random() * (n * 2 + 1)) - n;
             // 如果随机数是负数，使用连续增加功德数之和加上这个负数
@@ -40,8 +64,9 @@
                 sum__ = 0;
             }
             // 每点击一次，功德增加随机数
-            if (!flag) n += rand__;
+            // if (flag == 1) n += rand__;
             // 更新显示的功德值
+            n += rand__;
             document.getElementById("功德显示").innerHTML = "功德：" + n;
             // 如果随机数是正数，更新连续增加功德数之和
             if (rand__ > 0) {
@@ -54,15 +79,22 @@
     <script>
         function SAVE() {
             localStorage.setItem("n", n);
+            localStorage.setItem("m", m);
         }
         function READ() {
-            flag = 1;
+            // flag = 1;
             n = localStorage.getItem("n");
+            m = localStorage.getItem("m");
         }
         function LAOD() {
-            flag = 1;
+            // flag = 1;
             READ();
+            n++;
+            n--;
+            m++;
+            m--;
             document.getElementById("功德显示").innerHTML = "功德：" + n;
+            document.getElementById("信仰显示").innerHTML = "信仰：" + m;
         }
     </script>
 </head>
@@ -73,11 +105,16 @@
     <br>
     <p>↑（纪念UKE！）<br><a href="https://www.luogu.com.cn/discuss/61884">说句闲话：研究珂学的最好方法是</a></p>
     <br>
-    <p>敲木鱼来纪念UKE吧</p>
+    <p>敲木鱼来纪念UKE吧  <strong>作者洛谷名：LUO_Never_AC，未经允许，禁止转载。</strong></p>
     <br>
-    <button onclick="muyi()">木鱼（要慢慢按，不然加不了哦！）</button>
+    <button onclick="muyu()">木鱼（要慢慢按，不然加不了哦！）</button>
     <button onclick="dutumuyu()">赌徒木鱼（小心哦！）</button>
-    <p id="功德显示">功德：0</p>
+    <p id="功德显示">功德：0<br></p>
+    <p id="信仰显示">信仰：0</p>
+    <button onclick="changetogongde()">1信仰->50000功德</button>
+    <button onclick="changetoxinyang()">50000功德->1信仰</button>
+    <button onclick="auto1()">自动兑换成功德</button>
+    <button onclick="auto2()">自动兑换成信仰</button>
     <br>
     <button onclick="SAVE()">保存游戏</button>
     <button onclick="LAOD()">加载游戏</button>
