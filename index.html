@@ -56,9 +56,11 @@
             localStorage.setItem("n", n);
         }
         function READ() {
+            flag = 1;
             n = localStorage.getItem("n");
         }
         function LAOD() {
+            flag = 1;
             READ();
             document.getElementById("功德显示").innerHTML = "功德：" + n;
         }
