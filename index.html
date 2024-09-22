@@ -49,6 +49,18 @@
             }
         }
     </script>
+    <script>
+        function SAVE() {
+            localStorage.setItem("n", n);
+        }
+        function READ() {
+            n = localStorage.getItem("n");
+        }
+        function LAOD() {
+            READ();
+            document.getElementById("功德显示").innerHTML = "功德：" + n;
+        }
+    </script>
 </head>
 
 <body>
@@ -62,6 +74,9 @@
     <button onclick="muyi()">木鱼（要慢慢按，不然加不了哦！）</button>
     <button onclick="dutumuyu()">赌徒木鱼（小心哦！）</button>
     <p id="功德显示">功德：0</p>
+    <br>
+    <button onclick="SAVE()">保存游戏</button>
+    <button onclick="LAOD()">加载游戏</button>
     <script>
         (function () {
             var a_idx = 0;
