@@ -19,15 +19,15 @@
             while (n >= 50000) changetoxinyang();
         }
         function changetogongde() {
-            // if (m < 1 || flag == 1) { kk(); return; }
+            if (m < 1) { kk(); return; }
             m--;
             n += 50000;
             document.getElementById("功德显示").innerHTML = "功德：" + n;
             document.getElementById("信仰显示").innerHTML = "信仰：" + m;
         }
         function changetoxinyang() {
-            // if (n < 50000 || flag == 1) { kk(); return; }
-            n -= 500000;
+            if (n < 50000) { kk(); return; }
+            n -= 50000;
             m++;
             document.getElementById("功德显示").innerHTML = "功德：" + n;
             document.getElementById("信仰显示").innerHTML = "信仰：" + m;
