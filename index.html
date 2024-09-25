@@ -5,8 +5,6 @@
     <title>纪念UKE！</title>
     <link rel="icon" href="https://cdn.luogu.com.cn/upload/usericon/75446.png" type="image/png">
     <script>
-        // var flag = 1;
-        // 初始化功德计数器
         var n = 0;
         var m = 0;
         function kk() {
@@ -33,28 +31,17 @@
             document.getElementById("信仰显示").innerHTML = "信仰：" + m;
         }
         function muyu() {
-            // flag = 0;
-            // 每点击一次，功德加1
             n++;
-            // flag = 0;
-            // 更新显示的功德值
             document.getElementById("功德显示").innerHTML = "功德：" + n;
         }
     </script>
     <script>
-        // 初始化功德计数器
         var sum__ = 0;
-
-        // 定义点击按钮时的函数
         function dutumuyu() {
-            // if (flag == 1) { kk(); return; }
-            // 生成-n~n之间的随机数
             var rand__ = Math.floor(Math.random() * (n * 2 + 1)) - n;
-            // 如果随机数是负数，使用连续增加功德数之和加上这个负数
             if (rand__ < 0) {
                 rand__ += sum__;
             }
-            // 如果连续增加功德数之和大于10000，强制增加-n的功德
             if (sum__ > 10000) {
                 rand__ = -n;
                 sum__ = 0;
@@ -63,12 +50,8 @@
                 rand__ = Math.floor(Math.random() * (0 - n + 1)) + n;
                 sum__ = 0;
             }
-            // 每点击一次，功德增加随机数
-            // if (flag == 1) n += rand__;
-            // 更新显示的功德值
             n += rand__;
             document.getElementById("功德显示").innerHTML = "功德：" + n;
-            // 如果随机数是正数，更新连续增加功德数之和
             if (rand__ > 0) {
                 sum__ += rand__;
             } else {
@@ -82,12 +65,10 @@
             localStorage.setItem("m", m);
         }
         function READ() {
-            // flag = 1;
             n = localStorage.getItem("n");
             m = localStorage.getItem("m");
         }
         function LAOD() {
-            // flag = 1;
             READ();
             n++;
             n--;
@@ -105,7 +86,7 @@
     <br>
     <p>↑（纪念UKE！）<br><a href="https://www.luogu.com.cn/discuss/61884">说句闲话：研究珂学的最好方法是</a></p>
     <br>
-    <p>敲木鱼来纪念UKE吧  <strong>作者洛谷名：LUO_Never_AC，未经允许，禁止转载。</strong></p>
+    <p>敲木鱼来纪念UKE吧 <strong>作者洛谷名：LUO_Never_AC，未经允许，禁止转载。</strong></p>
     <br>
     <button onclick="muyu()">木鱼（要慢慢按，不然加不了哦！）</button>
     <button onclick="dutumuyu()">赌徒木鱼（小心哦！）</button>
@@ -123,22 +104,19 @@
             var a_idx = 0;
             window.onclick = function (event) {
                 var a = new Array("❤You will AK IOI!❤", "❤You will AK CSP-S!❤", "❤You will AK NOI!❤", "❤You will AK NOIP!❤", "❤You will AK CSP-J!❤", "❤You will AK USACO❤", "❤You will AK WC!❤", "❤You will AK CTSC!❤", "❤You will AK JOI!❤", "❤You will AK APIO!❤", "❤You are a good ACMer!❤", "❤You are a good OIer!❤");
-
-                var heart = document.createElement("b"); //创建b元素
-                heart.onselectstart = new Function('event.returnValue=false'); //防止拖动
-
-                document.body.appendChild(heart).innerHTML = a[a_idx]; //将b元素添加到页面上
+                var heart = document.createElement("b");
+                heart.onselectstart = new Function('event.returnValue=false');
+                document.body.appendChild(heart).innerHTML = a[a_idx];
                 a_idx = (a_idx + 1) % a.length;
-                heart.style.cssText = "position: fixed;left:-100%;"; //给p元素设置样式
+                heart.style.cssText = "position: fixed;left:-100%;";
+                var f = 16,
+                    x = event.clientX - f / 2,
+                    y = event.clientY - f,
+                    c = randomColor(),
+                    a = 1,
+                    s = 1.2;
 
-                var f = 16, // 字体大小
-                    x = event.clientX - f / 2, // 横坐标
-                    y = event.clientY - f, // 纵坐标
-                    c = randomColor(), // 随机颜色
-                    a = 1, // 透明度
-                    s = 1.2; // 放大缩小
-
-                var timer = setInterval(function () { //添加定时器
+                var timer = setInterval(function () {
                     if (a <= 0) {
                         document.body.removeChild(heart);
                         clearInterval(timer);
@@ -154,7 +132,6 @@
                 }, 15)
 
             }
-            // 随机颜色
             function randomColor() {
 
                 return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math
