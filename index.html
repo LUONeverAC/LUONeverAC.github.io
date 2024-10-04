@@ -36,30 +36,6 @@
         }
     </script>
     <script>
-        var sum__ = 0;
-        function dutumuyu() {
-            var rand__ = Math.floor(Math.random() * (n * 2 + 1)) - n;
-            if (rand__ < 0) {
-                rand__ += sum__;
-            }
-            if (sum__ > 10000) {
-                rand__ = -n;
-                sum__ = 0;
-            }
-            else if (sum__ > 1000) {
-                rand__ = Math.floor(Math.random() * (0 - n + 1)) + n;
-                sum__ = 0;
-            }
-            n += rand__;
-            document.getElementById("功德显示").innerHTML = "功德：" + n;
-            if (rand__ > 0) {
-                sum__ += rand__;
-            } else {
-                sum__ = 0;
-            }
-        }
-    </script>
-    <script>
         function SAVE() {
             localStorage.setItem("n", n);
             localStorage.setItem("m", m);
@@ -76,6 +52,31 @@
             m--;
             document.getElementById("功德显示").innerHTML = "功德：" + n;
             document.getElementById("信仰显示").innerHTML = "信仰：" + m;
+        }
+    </script>
+    <script>
+        var sum__ = 0;
+        function dutumuyu() {
+            var rand__ = Math.floor(Math.random() * (n * 2 + 1)) - n;
+            if (rand__ < 0) {
+                rand__ += sum__;
+            }
+            if (sum__ > 10000) {
+                rand__ = -n;
+                sum__ = 0;
+            }
+            else if (sum__ > 1000) {
+                rand__ = Math.floor(Math.random() * (0 - n + 1)) + n;
+                sum__ = 0;
+            }
+            n += rand__;
+            SAVE();
+            document.getElementById("功德显示").innerHTML = "功德：" + n;
+            if (rand__ > 0) {
+                sum__ += rand__;
+            } else {
+                sum__ = 0;
+            }
         }
     </script>
 </head>
