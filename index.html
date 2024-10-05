@@ -8,8 +8,12 @@
         var n = 0;
         var m = 0;
         var jia = 1;
+        var ne = 1;
         function kk() {
             alert("Error!");
+        }
+        function tishi() {
+            alert("如果看不到保存和加载按钮，请向下划哦。");
         }
         function zhaomu() {
             if (m < 1) {
@@ -50,6 +54,7 @@
             localStorage.setItem("n", n);
             localStorage.setItem("m", m);
             localStorage.setItem("jia", jia);
+            localStorage.setItem("ne", 123);
         }
         function READ() {
             n = localStorage.getItem("n");
@@ -67,6 +72,9 @@
             document.getElementById("功德显示").innerHTML = "功德：" + n;
             document.getElementById("信仰显示").innerHTML = "信仰：" + m;
             document.getElementById("木鱼加成").innerHTML = "木鱼加成：" + jia;
+        }
+        function NE() {
+            ne = localStorage.getItem("ne");
         }
     </script>
     <script>
@@ -97,6 +105,7 @@
 </head>
 
 <body>
+    <script>NE(); if (ne != 123) tishi()</script>
     <h1>纪念UKE！</h1>
     <img src="https://cdn.luogu.com.cn/upload/image_hosting/it2ueqmo.png" alt="">
     <br>
@@ -120,45 +129,45 @@
     <button onclick="SAVE()">保存游戏</button>
     <button onclick="LAOD()">加载游戏</button>
     <script>
-        (function () {
-            var a_idx = 0;
-            window.onclick = function (event) {
-                var a = new Array("❤You will AK IOI!❤", "❤You will AK CSP-S!❤", "❤You will AK NOI!❤", "❤You will AK NOIP!❤", "❤You will AK CSP-J!❤", "❤You will AK USACO❤", "❤You will AK WC!❤", "❤You will AK CTSC!❤", "❤You will AK JOI!❤", "❤You will AK APIO!❤", "❤You are a good ACMer!❤", "❤You are a good OIer!❤");
-                var heart = document.createElement("b");
-                heart.onselectstart = new Function('event.returnValue=false');
-                document.body.appendChild(heart).innerHTML = a[a_idx];
-                a_idx = (a_idx + 1) % a.length;
-                heart.style.cssText = "position: fixed;left:-100%;";
-                var f = 16,
-                    x = event.clientX - f / 2,
-                    y = event.clientY - f,
-                    c = randomColor(),
-                    a = 1,
-                    s = 1.2;
+            (function () {
+                var a_idx = 0;
+                window.onclick = function (event) {
+                    var a = new Array("❤You will AK IOI!❤", "❤You will AK CSP-S!❤", "❤You will AK NOI!❤", "❤You will AK NOIP!❤", "❤You will AK CSP-J!❤", "❤You will AK USACO❤", "❤You will AK WC!❤", "❤You will AK CTSC!❤", "❤You will AK JOI!❤", "❤You will AK APIO!❤", "❤You are a good ACMer!❤", "❤You are a good OIer!❤");
+                    var heart = document.createElement("b");
+                    heart.onselectstart = new Function('event.returnValue=false');
+                    document.body.appendChild(heart).innerHTML = a[a_idx];
+                    a_idx = (a_idx + 1) % a.length;
+                    heart.style.cssText = "position: fixed;left:-100%;";
+                    var f = 16,
+                        x = event.clientX - f / 2,
+                        y = event.clientY - f,
+                        c = randomColor(),
+                        a = 1,
+                        s = 1.2;
 
-                var timer = setInterval(function () {
-                    if (a <= 0) {
-                        document.body.removeChild(heart);
-                        clearInterval(timer);
-                    } else {
-                        heart.style.cssText = "font-size:16px;cursor: default;position: fixed;color:" +
-                            c + ";left:" + x + "px;top:" + y + "px;opacity:" + a + ";transform:scale(" +
-                            s + ");";
+                    var timer = setInterval(function () {
+                        if (a <= 0) {
+                            document.body.removeChild(heart);
+                            clearInterval(timer);
+                        } else {
+                            heart.style.cssText = "font-size:16px;cursor: default;position: fixed;color:" +
+                                c + ";left:" + x + "px;top:" + y + "px;opacity:" + a + ";transform:scale(" +
+                                s + ");";
 
-                        y--;
-                        a -= 0.016;
-                        s += 0.002;
-                    }
-                }, 15)
+                            y--;
+                            a -= 0.016;
+                            s += 0.002;
+                        }
+                    }, 15)
 
-            }
-            function randomColor() {
+                }
+                function randomColor() {
 
-                return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math
-                    .random() * 255)) + ")";
+                    return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math
+                        .random() * 255)) + ")";
 
-            }
-        }());
+                }
+            }());
     </script>
     <script>
         !function () {
