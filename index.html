@@ -7,8 +7,18 @@
     <script>
         var n = 0;
         var m = 0;
+        var jia = 1;
         function kk() {
             alert("Error!");
+        }
+        function zhaomu() {
+            if (m < 1) {
+                kk(); return;
+            }
+            m--;
+            jia += 2;
+            document.getElementById("木鱼加成").innerHTML = "木鱼加成：" + jia;
+            document.getElementById("信仰显示").innerHTML = "信仰：" + m;
         }
         function auto1() {
             while (m >= 1) changetogongde();
@@ -31,7 +41,7 @@
             document.getElementById("信仰显示").innerHTML = "信仰：" + m;
         }
         function muyu() {
-            n++;
+            n += jia;
             document.getElementById("功德显示").innerHTML = "功德：" + n;
         }
     </script>
@@ -39,10 +49,12 @@
         function SAVE() {
             localStorage.setItem("n", n);
             localStorage.setItem("m", m);
+            localStorage.setItem("jia", jia);
         }
         function READ() {
             n = localStorage.getItem("n");
             m = localStorage.getItem("m");
+            jia = localStorage.getItem("jia");
         }
         function LAOD() {
             READ();
@@ -50,8 +62,11 @@
             n--;
             m++;
             m--;
+            jia++;
+            jia--;
             document.getElementById("功德显示").innerHTML = "功德：" + n;
             document.getElementById("信仰显示").innerHTML = "信仰：" + m;
+            document.getElementById("木鱼加成").innerHTML = "木鱼加成：" + jia;
         }
     </script>
     <script>
@@ -85,14 +100,18 @@
     <h1>纪念UKE！</h1>
     <img src="https://cdn.luogu.com.cn/upload/image_hosting/it2ueqmo.png" alt="">
     <br>
-    <p>↑（纪念UKE！）<strong>注：为了弘扬愿赌服输的精神，赌徒木鱼加了自动保存。</strong><br><a href="https://www.luogu.com.cn/discuss/61884">说句闲话：研究珂学的最好方法是</a></p>
+    <p>↑（纪念UKE！）<strong>注：为了弘扬愿赌服输的精神，赌徒木鱼加了自动保存。</strong><br><a
+            href="https://www.luogu.com.cn/discuss/61884">说句闲话：研究珂学的最好方法是</a></p>
     <br>
-    <p>敲木鱼来纪念UKE吧 <strong>作者洛谷名：LUO_Never_AC，未经允许，禁止转载。</strong><a href="https://www.luogu.com.cn/team/75912">戳这里加入我们</a></p>
+    <p>敲木鱼来纪念UKE吧 <strong>作者洛谷名：LUO_Never_AC，未经允许，禁止转载。</strong><a
+            href="https://www.luogu.com.cn/team/75912">戳这里加入我们</a></p>
     <br>
     <button onclick="muyu()">木鱼（要慢慢按，不然加不了哦！）</button>
     <button onclick="dutumuyu()">赌徒木鱼（小心哦！）</button>
+    <button onclick="zhaomu()">招募信徒（1信仰，升级普通木鱼）</button>
     <p id="功德显示">功德：0<br></p>
     <p id="信仰显示">信仰：0</p>
+    <p id="木鱼加成">木鱼加成：1</p>
     <button onclick="changetogongde()">1信仰->50000功德</button>
     <button onclick="changetoxinyang()">50000功德->1信仰</button>
     <button onclick="auto1()">自动兑换成功德</button>
