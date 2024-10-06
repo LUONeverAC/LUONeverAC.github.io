@@ -69,6 +69,8 @@
             m--;
             jia++;
             jia--;
+            if(jia == 0)
+                jia = 1;
             document.getElementById("功德显示").innerHTML = "功德：" + n;
             document.getElementById("信仰显示").innerHTML = "信仰：" + m;
             document.getElementById("木鱼加成").innerHTML = "木鱼加成：" + jia;
